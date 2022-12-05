@@ -20,8 +20,10 @@ public class EtudiantRepository implements IEtudiant  {
 		
 		if (rs == 1){
 				System.out.println("log : ajout dans la BD réussi de l'étudiant  du Matricule" + E.getMatricule());
+			journal.outPut_Msg("log : ajout dans la BD reussi de l'etudiant  du Matricule" + E.getMatricule());
 			}else if (rs == 0){
 				System.out.println("log : Echec de l'ajout dans la BD de l'étudiant  du Matricule" + E.getMatricule());
+			journal.outPut_Msg("log : Echec de l'ajout dans la BD de l'étudiant  du Matricule" + E.getMatricule());
 			}
 		connect.close();
 	 }
@@ -38,10 +40,12 @@ public class EtudiantRepository implements IEtudiant  {
 		
 		if (rs){
 			System.out.println("logBD--- :email existe dans la BD  " + email);
+			journal.outPut_Msg("logBD--- :email existe dans la BD  " + email);
 			connect.close();
 			return true;
 			}
 		System.out.println("logBD--- : email n'existe pas " + email);	
+		journal.outPut_Msg("logBD--- :email n'existe dans la BD  " + email);
 		connect.close();
 		return false;
 	}
@@ -57,10 +61,12 @@ public class EtudiantRepository implements IEtudiant  {
 		
 		if (rs){
 			System.out.println("logBD--- :etudiant avec ce matricule existe déja dans la BD  " + mat);
+			journal.outPut_Msg("logBD--- :email existe dans la BD  " + email);
 			connect.close();
 			return true;
 			}
-		System.out.println("logBD----: etudiant avec ce matricule n'existe pas " + mat);	
+		System.out.println("logBD----: etudiant avec ce matricule n'existe pas " + mat);
+		journal.outPut_Msg("logBD--- :email n'existe dans la BD  " + email);
 		connect.close();
 		return false;
 	}
