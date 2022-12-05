@@ -1,20 +1,31 @@
-import java.sql.SQLException;
-import java.sql.*;
-
 public class MainApp {
 
 	public static void main(String[] args) {
-		
-		EtudiantService serv=new EtudiantService();
-       // serv.setEtudRep(new EtudiantRepository());
-		//serv.setUnivRep(new UniversiteRepository());
-		
-		try {
 
-		serv.inscription(2, "Guendouziiiii", "wassila", "guen@gmail.com","xxxx",1);
-	} catch (Exception e) {
-		e.printStackTrace();
-		
+		int matricule = 2;
+		String nom = "Guendouziiiii";
+		String prenom = "wassila";
+		String email = "guen@gmail.com";
+		String passcode = "xxxx";
+		int univId = 1;
+		IJournal journal = new MultipleOutputJournal("def");
+
+		EtudiantService serv = new EtudiantService();
+		EtudiantRepository repo = new EtudRepo();
+		UniversiteRepository UnivRepo = new UniverRepo();
+		Etudiant stud = new Etud(matricule, nom, prenom, email, passcode, univId);
+
+		try {
+			Universite uni = UnivRepo.GetById(univId);
+			if(uni != null) {
+				serv.inscription(repo, UnivRepo, uni, stud);
+			}else {
+				journal.outPut_Msg("ne peut pas cree etudiant");
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 }
