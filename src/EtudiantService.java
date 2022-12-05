@@ -46,7 +46,7 @@ IJournal journal = new diffOutputJournal("def");
 	     
 		
 		
-		public void addNbrLivre(int nbrAjout){
+		/* public void addNbrLivre(int nbrAjout){
 			
 		 if (univ.getPack() == TypePackage.Standard)
 	     {
@@ -56,8 +56,21 @@ IJournal journal = new diffOutputJournal("def");
 	     {
 	    	 stud.setNbLivreMensuel_Autorise(10*2 + nbrAjout);
 	     }     
+	    AbsractFactory AB = new AbsractFactory();
+		Package P = AB.getPackage(universite.getPack());
+		E.bonus(P.getBonus());
                   
-                  }
+                  }*/ 
+		
+		public void AjouerBonusEtudiant(Etudiant E) throws SQLException{
+		
+		InterfaceUniversite universite = UR.GetById(E.getId_universite());
+		AbsractFactory AB = new AbsractFactory();
+		Package P = AB.getPackage(universite.getPack());
+		E.bonus(P.getBonus());
+	}
+		
+		
 		 StudRep.add(stud);
 		 System.out.println("Log: Fin de l'opération d'ajout de l'étudiant avec matricule "+matricule);
 		journal.outPut_Msg("Log: Fin de l'operation d'ajout de l'etudiant avec matricule "+stud.getMatricule());
