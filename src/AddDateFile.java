@@ -1,6 +1,6 @@
 import java.time.LocalDate;
 
-public class addDateFile implements Ijournal{
+public class addDateFile implements IJournal{
 
   @Override
   public void outPut_Msg(String message){
