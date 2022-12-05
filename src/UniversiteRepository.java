@@ -10,12 +10,12 @@ public class UniversiteRepository implements IUniversite {
 
 	@Override
 	public Universite GetById(int universityId) throws SQLException {
-
+                IJournal journal = new MultipleOutputJournal("def");
 		DBConnection BD= DBConnection.getInstance();
 		Connection connect= BD.getConn();
 		Statement stmt = connect.createStatement();
 		System.out.println("LogBD : début recherche de id université dans la base de donnée");
-		
+		ournal.outPut_Msg("LogBD : debut recherche de id universite dans la base de donnee");
 		String sql = "SELECT * FROM universite WHERE id_universite="+ universityId;
 		ResultSet rs = stmt.executeQuery(sql);
 		rs.next();	
@@ -23,7 +23,7 @@ public class UniversiteRepository implements IUniversite {
 		Universite u = new Universite (rs.getInt(1),rs.getString(2),p);
 			
 		System.out.println("LogBD : université récupérée");
-		
+		journal.outPut_Msg("LogBD : universite recuperee");
 		//connect.close();
 		return u;	
 	
