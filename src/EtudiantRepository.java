@@ -2,19 +2,18 @@
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
-public class EtudiantRepository {
-
-
-	void add(Etudiant E) throws SQLException
-	{
 public class EtudiantRepository implements IEtudiant {
-IJournal journal = new diffOutputJournal("efd"); // e: pour ecran  f: pour fichier;
+
+
+	
+	
+
+   IJournal journal = new diffOutputJournal("efd"); // e: pour ecran  f: pour fichier;
 
 
 		DBConnection BD= DBConnection.getInstance();
 
-	@Override
-	public void add(Etudiant E) throws SQLException{
+ public void add(Etudiant E) throws SQLException{
 
 		DBConnection BD= DBConnection.getInstance();
 
