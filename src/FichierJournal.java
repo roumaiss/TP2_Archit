@@ -1,7 +1,7 @@
 import java.io.File;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class fichierJournal implements IJournal{
+public class FichierJournal implements IJournal{
 
   @Override
   public void outPut_Msg(String message) {
