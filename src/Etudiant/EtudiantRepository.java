@@ -6,8 +6,11 @@ import java.sql.Statement;
 
 public class EtudiantRepository implements IEtudiant  {
 	
-	IJournal journal = new diffOutputJournal("efd");
-	DBConnection BD= DBConnection.getInstance();
+	private IJournal journal;
+	
+	public EtudiantRepository(IJournal Journal){
+		this.journal = Journal ;
+	}
 	
 	void add(Etudiant E) throws SQLException
 	{
@@ -71,6 +74,11 @@ public class EtudiantRepository implements IEtudiant  {
 		journal.outPut_Msg("logBD--- :email n'existe dans la BD  " + email);
 		connect.close();
 		return false;
+	}
+	public boolean VerifEmailMat(int Mat, String Email) throws SQLException	
+	{
+		return ( Exists(Email) || Exists(Mat) || Email == null || Email.length() == 0 );
+		
 	}
 
 }
