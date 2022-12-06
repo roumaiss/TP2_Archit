@@ -1,16 +1,24 @@
-import java.time.LocalDate;
+import java.time.format.DateTimeFormatter; 
+import java.time.LocalDateTime;
+import Interface.IJournal;
 
-public class addDateFile implements IJournal{
+public class AfficheDateClass implements IJournal{
+	
+	private static String Csender;
+	
+	public static void setSender(String Name)
+	{
+		Csender = Name;
+	}
+	
+	@Override
+	public void outPut_Msg(String message) {
 
-  @Override
-  public void outPut_Msg(String message){
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");  
 
-  }
-  
-  public String addDate(String message, String clas){
-    
-    String newMessage = LocalDate.now().toString() + " " + clas + " : ";
-    
-    return newMessage + message;
-  }
+	    LocalDateTime now = LocalDateTime.now(); 
+		System.out.println(message);
+		System.out.println("A été généré par la class : " + Csender + " ");
+		System.out.println("À la date: " + dtf.format(now));
+	}
 }
