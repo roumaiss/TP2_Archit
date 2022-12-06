@@ -6,6 +6,8 @@ import java.sql.Statement;
 
 public class EtudiantRepository implements IEtudiant  {
 	
+	IJournal journal = new diffOutputJournal("efd");
+	DBConnection BD= DBConnection.getInstance();
 	
 	void add(Etudiant E) throws SQLException
 	{
@@ -57,7 +59,7 @@ public class EtudiantRepository implements IEtudiant  {
 		
 		Statement stmt = connect.createStatement();
 		String sql = "select * from etudiant where matricule="+ mat;
-		boolean rs = stmt.execute(sql);
+		boolean rs = stmt.execute(sql).next();
 		
 		if (rs){
 			System.out.println("logBD--- :etudiant avec ce matricule existe déja dans la BD  " + mat);
