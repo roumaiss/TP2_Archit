@@ -4,26 +4,10 @@ public class Standard extends Package {
      	super(TypePackage.Standard);
 	}
 	
-	public Standard(TypePackage type_p) {
-		super(type_p);
+	public Standard(TypePackage tpack) {
+		super(tpack);
 		// TODO Auto-generated constructor stub
 	}
-
-	
-	@Override
-	public void SetNbLivreAutorise(int nombre) {
-		// TODO Auto-generated method stub
-		this.nbrLivreAutorise  = nombre;
-		
-	}
-
-	@Override
-	public void SetNbLivrebonus(int nombre) {
-		// TODO Auto-generated method stub
-		this.nbrLivreBonus = nombre;
-		
-	}
-
 	@Override
 	public int getNbrLivreAutorise() {
 		// TODO Auto-generated method stub
@@ -35,6 +19,16 @@ public class Standard extends Package {
 		// TODO Auto-generated method stub
 		return 5;
 	}
+	public int setNbrLivreAutorise(int nbr) {
+		// TODO Auto-generated method stub
+		this.nbrlivreAutorise=nbr;
+	} 
+	public void SetNbLivrebonus(int nbr) {
+		// TODO Auto-generated method stub
+		this.nbrLivreBonus = nbr;
+		
+	}
+
 
 
 
